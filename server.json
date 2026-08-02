@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.liftli-ai/liftli",
+  "title": "Liftli",
+  "description": "Strategist, ghostwriter, scheduler and analyst in one, inside your AI. LinkedIn, X, Substack.",
+  "version": "1.0.0",
+  "websiteUrl": "https://liftli.ai",
+  "repository": {
+    "url": "https://github.com/liftli-ai/liftli-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://liftli-strategist-mcp.onrender.com/mcp"
+    }
+  ]
+}
