@@ -1,5 +1,15 @@
 # Liftli — head of content, as an MCP server
 
+<p align="center">
+  <img alt="LinkedIn" src="https://cdn.worldvectorlogo.com/logos/linkedin-icon-2.svg" width="32">
+  &nbsp;&nbsp;
+  <img alt="X (Twitter)" src="https://cdn.simpleicons.org/x/000000" width="32">
+  &nbsp;&nbsp;
+  <img alt="Substack" src="https://cdn.simpleicons.org/substack/FF6719" width="32">
+</p>
+
+<p align="center"><strong>LinkedIn &nbsp;·&nbsp; X (Twitter) &nbsp;·&nbsp; Substack</strong></p>
+
 Liftli is a remote [MCP](https://modelcontextprotocol.io) server that acts as a head of content
 for **LinkedIn, X (Twitter) and Substack**, inside the AI assistant you already use.
 
