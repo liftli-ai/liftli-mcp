@@ -18,8 +18,8 @@ transcripts, GitHub activity, chats, the news — for post ideas, builds and rem
 drafts in your voice, critiques every draft like a ruthless editor, and schedules or publishes
 through the platforms' **official APIs**.
 
-**Nothing publishes without your explicit approval.** No scraping, no browser automation, no bots
-acting on your profile.
+**Nothing publishes without your explicit approval.** No browser automation and no bots acting on
+your profile.
 
 - Homepage: <https://liftli.ai>
 - Developer docs: <https://liftli.ai/developers.html>
@@ -100,7 +100,7 @@ including from a voice note sent over Telegram or WhatsApp while you are away fr
 - Publishing and scheduling run through **official platform APIs**, connected only when you
   explicitly link an account.
 - Every draft waits for your approval before anything is posted.
-- No browser extension, no scraping, no automated actions on your profile — the category the
+- No browser extension and no automated actions on your profile — the category the
   platforms' terms prohibit.
 
 ## Support
