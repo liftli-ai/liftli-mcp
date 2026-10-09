@@ -3,7 +3,7 @@
   "name": "io.github.liftli-ai/liftli",
   "title": "Liftli",
   "description": "Strategist, ghostwriter, scheduler and analyst in one, inside your AI. LinkedIn, X, Substack.",
-  "version": "1.0.0",
+  "version": "1.4.6",
   "websiteUrl": "https://liftli.ai",
   "repository": {
     "url": "https://github.com/liftli-ai/liftli-mcp",
@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://liftli-strategist-mcp.onrender.com/mcp"
+      "url": "https://mcp.liftli.ai/mcp"
     }
   ]
 }

@@ -38,13 +38,13 @@ to run locally.
 **Connector URL**
 
 ```
-https://liftli-strategist-mcp.onrender.com/mcp
+https://mcp.liftli.ai/mcp
 ```
 
 **Claude Code**
 
 ```bash
-claude mcp add --scope user --transport http liftli https://liftli-strategist-mcp.onrender.com/mcp
+claude mcp add --scope user --transport http liftli https://mcp.liftli.ai/mcp
 ```
 
 **Claude Desktop** — Customize (briefcase icon) → Connectors → **+ Add custom connector** → paste
