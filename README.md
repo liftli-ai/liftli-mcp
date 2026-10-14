@@ -1,4 +1,14 @@
-# Liftli — head of content, as an MCP server
+<h1 align="center">Liftli MCP</h1>
+
+<p align="center">
+  The remote MCP server behind <a href="https://liftli.ai">Liftli</a>: a head of content for LinkedIn and X, inside the AI you already use.<br>
+  Built by <a href="https://www.linkedin.com/in/odedtsamir/">Oded Tsamir</a>.<br><br>
+  <a href="https://liftli.ai">Website</a> ·
+  <a href="#install">Install</a> ·
+  <a href="#tools">Tools</a> ·
+  <a href="https://github.com/liftli-ai/linkedin-agent-skills">Free open-source skills</a> ·
+  <a href="https://liftli.ai/developers">Developer docs</a>
+</p>
 
 <p align="center">
   <img alt="LinkedIn" src="https://cdn.worldvectorlogo.com/logos/linkedin-icon-2.svg" width="32">
@@ -8,34 +18,27 @@
   <img alt="Substack" src="https://cdn.simpleicons.org/substack/FF6719" width="32">
 </p>
 
-<p align="center"><strong>LinkedIn &nbsp;·&nbsp; X (Twitter) &nbsp;·&nbsp; Substack</strong></p>
+> **What this repository is.** Liftli is a hosted service. This repo holds its public documentation and the
+> `server.json` that lists it in the [Official MCP Registry](https://registry.modelcontextprotocol.io) as
+> `io.github.liftli-ai/liftli`. The server code is not open source, and there is nothing to self-host.
+> The open-source part of Liftli is [liftli-ai/linkedin-agent-skills](https://github.com/liftli-ai/linkedin-agent-skills):
+> 31 free, MIT-licensed LinkedIn skills that run on your own agent's model.
 
-Liftli is a remote [MCP](https://modelcontextprotocol.io) server that acts as a head of content
-for **LinkedIn, X (Twitter) and Substack**, inside the AI assistant you already use.
+## What it does
 
-It extracts your writing voice from your own posts, mines your real work — voice notes, meeting
-transcripts, GitHub activity, chats, the news — for post ideas, builds and remembers your strategy,
-drafts in your voice, critiques every draft like a ruthless editor, and schedules or publishes
-through the platforms' **official APIs**.
+Liftli learns your writing voice from your own posts, finds post ideas in your real work (voice notes,
+meeting transcripts, GitHub activity, chats and the news), builds and remembers your strategy, drafts in
+your voice and critiques every draft before you see it. Approved posts are published or scheduled to
+LinkedIn (and X on the Business plan) through their official APIs. For Substack it plans and drafts newsletter issues and Notes;
+you publish those on Substack yourself.
 
-**Nothing publishes without your explicit approval.** No browser automation and no bots acting on
-your profile.
-
-- Homepage: <https://liftli.ai>
-- Developer docs: <https://liftli.ai/developers.html>
-- Free skills (no account needed): <https://github.com/liftli-ai/skills>
-
-> **About this repository.** Liftli is a hosted service; this repo is documentation and install
-> instructions for the remote MCP server. The server implementation is not open source. If you are
-> looking for something self-hostable, this is not it — but the connector is free to add and starts
-> with a free usage allowance, no card required.
+**Nothing publishes without your approval.** No browser extension and no bots acting on your profile.
 
 ## Install
 
-The server is remote — served over HTTPS, using MCP's Streamable HTTP transport. There is nothing
-to run locally.
+The server is remote, served over HTTPS with MCP's Streamable HTTP transport. Nothing runs locally.
 
-**Connector URL**
+Connector URL:
 
 ```
 https://mcp.liftli.ai/mcp
@@ -45,63 +48,52 @@ https://mcp.liftli.ai/mcp
 
 ```bash
 claude mcp add --scope user --transport http liftli https://mcp.liftli.ai/mcp
+claude mcp login liftli
 ```
 
-**Claude Desktop** — Customize (briefcase icon) → Connectors → **+ Add custom connector** → paste
-the URL above into "Remote MCP Server URL".
+**Claude (web and desktop):** Customize (briefcase icon), then Connectors, then **Add custom connector**,
+and paste the URL above into "Remote MCP Server URL".
 
-**Other clients** (ChatGPT, Cursor, Codex, Copilot, Gemini) — add it as a custom/remote MCP server
-using the same URL. Client-specific notes are in [developers.html](https://liftli.ai/developers.html).
+**ChatGPT, Codex, Cursor, Grok and other clients:** add a custom or remote MCP server with the same URL.
+Client-specific steps: [liftli.ai/developers](https://liftli.ai/developers).
 
-If your client cannot reach a remote server directly, `npx mcp-remote` works as a bridge.
+You sign in once (secure WorkOS login). The free plan needs no card.
 
 ## Tools
 
-54 tools. Some clients expose a reduced set (ChatGPT 53, Cursor 40) to stay within their limits.
+24 tools, grouped by job. Ask your assistant in plain language; it picks the tool.
 
-**Start here / profile (7)** — `strategist_briefing`, `get_profile`, `save_profile`, `onboard`,
-`extract_voice`, `save_corpus_tags`, `liftli_status`
+| Job | Tools |
+|---|---|
+| Start and profile | `strategist_briefing`, `onboard`, `save_profile`, `rewrite_profile` |
+| Strategy and craft | `save_strategy`, `playbook` (13 briefs: hooks, ideas, calendar, growth, narrative, engagement, repurposing, Substack growth and more) |
+| Writing | `plan_post`, `plan_comment`, `critique`, `ready_to_post`, `save_post` |
+| Publishing | `connect_account` (LinkedIn, X, Google Calendar), `approve_post`, `distribute` (publish now, schedule, manage the queue) |
+| Memory and ideas | `remember`, `recall`, `news_monitor` |
+| Results | `log_outcome`, `analyze_results` |
+| Media | `media` (generate, upload, attach, list) |
+| Channels and account | `channel` (Telegram; WhatsApp coming soon), `contact_support`, `upgrade`, `dismiss_suggestion` |
 
-**Strategy (6)** — `build_strategy`, `save_strategy`, `define_narrative`, `growth_strategy`,
-`plan_calendar`, `content_ideas`
+The list above matches the live server's `tools/list`. You can check it without an account:
 
-**Writing (7)** — `plan_post`, `generate_hooks`, `critique`, `ready_to_post`, `save_post`,
-`browse_posts`, `rewrite_profile`
-
-**Engagement (4)** — `plan_comment`, `engagement_plan`, `analyze_results`, `log_outcome`
-
-**Substack (9)** — `build_substack_strategy`, `save_substack_strategy`, `plan_newsletter`,
-`score_newsletter`, `newsletter_headlines`, `plan_note`, `notes_from_newsletter`,
-`repurpose_to_substack`, `substack_growth`
-
-**Publishing & scheduling (7)** — `connect_account`, `approve_post`, `publish_post`,
-`schedule_post`, `list_scheduled`, `edit_scheduled`, `send_post_to_telegram`
-
-**Media & visuals (3)** — `generate_visual`, `plan_visual`, `manage_media`
-
-**Memory & seeds (5)** — `remember`, `recall`, `manage_memory`, `extract_seeds`, `news_monitor`
-
-**Channels & account (6)** — `link_telegram`, `link_whatsapp`, `notify`, `contact_support`,
-`upgrade`, `dismiss_suggestion`
+```bash
+curl -s -X POST https://mcp.liftli.ai/mcp \
+  -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
 
 ## How it differs
 
-Liftli covers the **whole pipeline**: it decides what is worth saying from your real week, drafts
-it in your extracted voice, pressure-tests the draft, and then publishes or schedules it through
-the platforms' official APIs. You do not need to add a separate scheduler.
-
-The dividing line against other tools is **where it lives**, not what it does. Schedulers and
-dashboards are surfaces you open and sit inside. Liftli is not a surface — it runs inside the AI
-assistant you already use, so capturing an idea, writing it and shipping it happen in one place,
-including from a voice note sent over Telegram or WhatsApp while you are away from a desk.
+Most tools cover one end of the job: a scheduler, or a writer. Liftli covers the whole pipeline: it decides
+what is worth saying from your real week, drafts it in your voice, pressure-tests the draft, and publishes
+or schedules it after you approve. It lives inside the AI assistant you already use, so capturing an idea,
+writing it and shipping it happen in one place, including from a voice note sent over Telegram.
 
 ## Safety model
 
-- Publishing and scheduling run through **official platform APIs**, connected only when you
-  explicitly link an account.
-- Every draft waits for your approval before anything is posted.
-- No browser extension and no automated actions on your profile — the category the
-  platforms' terms prohibit.
+- Publishing and scheduling use the platforms' official APIs, connected only when you link an account.
+- Every draft waits for your approval.
+- No browser extension and no automated actions on your profile.
 
 ## Support
 
@@ -109,5 +101,5 @@ Open an issue here, or use the `contact_support` tool from inside your assistant
 
 ## License
 
-Documentation in this repository is MIT-licensed. The Liftli service itself is proprietary and
-governed by the [terms at liftli.ai](https://liftli.ai/legal.html).
+The documentation in this repository is MIT-licensed. The Liftli service is proprietary and governed by the
+[terms at liftli.ai](https://liftli.ai/terms).
